@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Game Downloader</title>
+</head>
+<body>
+    <h1>HTML Game Downloader</h1>
+    <button id="showFilesButton">Show Files</button>
+    <ul id="fileList" style="display: none;"></ul>
+
+    <script>
+        const files = [
+            { name: 'Plane Game Thingy', url: 'Aichi D3A simulator ✈ Version 15.6.html' },
+            { name: 'Kitty Shooter (NOT what it sounds like)', url: 'Kitty Shooter.html' },
+            { name: 'Number Guessing Game (1-10)', url: 'GuessingGame.html' }
+            { name: '5th Grade Flappy Bird', url: 'trashflappybird.html' }
+        { name: 'Griffpatch Ball Physics', url: 'Ball Physics.html' }
+        ];
+
+        const showFilesButton = document.getElementById('showFilesButton');
+        const fileList = document.getElementById('fileList');
+
+        showFilesButton.addEventListener('click', function() {
+            fileList.innerHTML = '';
+            files.forEach(file => {
+                const listItem = document.createElement('li');
+                const downloadLink = document.createElement('a');
+                downloadLink.href = file.url;
+                downloadLink.textContent = file.name;
+                downloadLink.setAttribute('download', '');
+                listItem.appendChild(downloadLink);
+                fileList.appendChild(listItem);
+            });
+
+            fileList.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
